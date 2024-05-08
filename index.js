@@ -29,7 +29,7 @@ async function run() {
     // Establish and verify connection
         const craftCollection = client.db("artisanHaven").collection("crafts");
         const extraCollection = client.db("artisanHaven").collection("extraSection");
-
+    // Perform actions on the collection object
         app.post('/addCraft', async (req, res) => {
             const newCraft = req.body;
             console.log(newCraft);
