@@ -26,6 +26,7 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
 
+    // Establish and verify connection
         const craftCollection = client.db("artisanHaven").collection("crafts");
         const extraCollection = client.db("artisanHaven").collection("extraSection");
 
@@ -41,7 +42,6 @@ async function run() {
               console.log(results);
               res.send(results);
             });
-
         app.get('/addCraft', async ( req , res) => {
           const cursor = craftCollection.find({});
           const results = await cursor.toArray();
@@ -85,13 +85,10 @@ async function run() {
   }
 }
 run().catch(console.dir);
-
-
 // Routes
 app.get('/', (req, res) => {
   res.send('Artisan Haven Server is running...');
 });
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
