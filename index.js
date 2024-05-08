@@ -71,6 +71,7 @@ async function run() {
             const result = await craftCollection.findOne(query);
             res.send(result);
         });
+        // Update a single document
         app.put('/addCraft/:id', async (req, res) => {
             const id = req.params.id;
             const updatedCraft = req.body;
