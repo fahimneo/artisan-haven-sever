@@ -54,15 +54,12 @@ async function run() {
           const result = await craftCollection.findOne(query);
           res.send(result);
         });
-
-        
                 
         app.delete('/deleteItem/:id', async (req, res) => {
             const result = await craftCollection.deleteOne({ _id: new ObjectId(req.params.id) });
             console.log(result);
             res.send(result)
-            }
-        );
+        });
         app.get('/artCraft/:email', async(req, res)=>{
             console.log(req.params.email);
             const result = await craftCollection.find({email:req.params.email}).toArray();
