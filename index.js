@@ -35,7 +35,7 @@ async function run() {
             console.log(newCraft);
             const result = await craftCollection.insertOne(newCraft);
             res.send(result);
-            });
+            });        
         app.get('/extraItem', async (req, res) => {
               const cursor = extraCollection.find();
               const results = await cursor.toArray();
@@ -54,7 +54,7 @@ async function run() {
           const result = await craftCollection.findOne(query);
           res.send(result);
         });
-                
+     // Update a single document           
         app.delete('/deleteItem/:id', async (req, res) => {
             const result = await craftCollection.deleteOne({ _id: new ObjectId(req.params.id) });
             console.log(result);
