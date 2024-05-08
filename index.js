@@ -5,12 +5,9 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
 const port = process.env.PORT || 8080;
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
-
-
-
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.wpzuq3d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
     console.log(uri);
